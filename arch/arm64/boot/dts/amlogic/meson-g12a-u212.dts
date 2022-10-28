@@ -1,0 +1,28 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+/*
+ * Copyright (c) 2018 Amlogic, Inc. All rights reserved.
+ * Create by XCray
+ */
+
+/dts-v1/;
+
+#include "meson-g12a-u200.dts"
+
+/ {
+	compatible = "amlogic,u212\0amlogic,g12a";
+	model = "Amlogic Meson G12A U212 platform M401A Box";
+  };
+&uart_A {
+    status = "okay";
+    pinctrl-0 = <&uart_a_pins>, <&uart_a_cts_rts_pins>;
+    uart-has-rtscts;
+    pinctrl-names = "default";
+
+    bluetooth {
+		  compatible = "realtek,rtl8723bs-bt";
+		  enable-gpios = <&gpio GPIOX_82 GPIO_ACTIVE_HIGH>;
+		  max-speed = <2000000>;
+		  clocks = <&wifi32k>;
+		  clock-names = "lpo";
+	  };
+};
