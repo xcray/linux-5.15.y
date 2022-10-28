@@ -11,7 +11,13 @@
 / {
 	compatible = "amlogic,u212\0amlogic,g12a";
 	model = "Amlogic Meson G12A U212 platform M401A Box";
-  };
+	wifi32k: wifi32k {
+		compatible = "pwm-clock";
+		#clock-cells = <0>;
+		clock-frequency = <32768>;
+		pwms = <&pwm_ef 0 30518 0>; /* PWM_E at 32.768KHz */
+	};
+};
 &uart_A {
     status = "okay";
     pinctrl-0 = <&uart_a_pins>, <&uart_a_cts_rts_pins>;
