@@ -12,10 +12,6 @@
 	compatible = "cm311,m401a,e900v22c", "amlogic,g12a";
 	model = "CM311-1a-YST";
 
-	aliases {
-		serial1 = &uart_A;
-	};
-
 	vddgpu: regulator-vddgpu {
 		compatible = "regulator-fixed";
 		regulator-name = "mali";
@@ -76,6 +72,14 @@
 	pinctrl-0 = <&uart_a_pins>, <&uart_a_cts_rts_pins>;
 	uart-has-rtscts;
 	pinctrl-names = "default";
+
+        bluetooth {
+		compatible = "realtek,rtl8723bs-bt";
+		enable-gpios = <&gpio GPIOX_17 GPIO_ACTIVE_HIGH>;
+		max-speed = <2000000>;
+		clocks = <&wifi32k>;
+		clock-names = "lpo";
+	};
 };
 
 &mali {
