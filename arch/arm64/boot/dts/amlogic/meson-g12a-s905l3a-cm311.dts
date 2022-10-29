@@ -75,8 +75,8 @@
 
         bluetooth {
 		compatible = "realtek,rtl8723bs-bt";
-		enable-gpios = <&gpio GPIOX_17 GPIO_ACTIVE_HIGH>;
-		reset-gpios = <&gpio GPIOX_17 GPIO_ACTIVE_LOW>;
+		gpio_reset = <&gpio GPIOX_17 GPIO_ACTIVE_HIGH>;
+		gpio_en = <&gpio GPIOX_17 GPIO_ACTIVE_HIGH>;
                 max-speed = <2000000>;
 		clocks = <&wifi32k>;
 		clock-names = "lpo";
